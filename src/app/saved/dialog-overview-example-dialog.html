@@ -1,0 +1,10 @@
+<!-- Dialog component -->
+<h1 mat-dialog-title><i class="fas fa-exclamation-triangle"></i>&nbsp;Attenzione</h1>
+<div mat-dialog-content>
+  <p>Sei sicuro di voler eliminare tutti i brani presenti nella libreria?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button cdkFocusInitial (click)="close()">Annulla</button>
+  <button mat-button color="warn" (click)="deleteAll()">Elimina</button>
+</div>
+<!---->

@@ -1,0 +1,287 @@
+/* Tag definitions */
+mat-form-field {
+    width: 60%;
+    font-size: 18px;
+    text-shadow: none;
+}
+
+mat-progress-bar {
+    height: 5px;
+}
+
+img {
+    border-radius: 15px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+audio {
+    width: 60%;
+    height: 30px;
+    border-radius: 10px;
+    opacity: 0.6;
+    transition: all 0.4s;
+}
+
+audio:hover {
+    opacity: 1;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: darkviolet;
+    text-decoration: underline;
+}
+/* End of tags
+
+***
+***
+***
+
+Class definitions */
+.preAlbumMessage {
+    opacity: 0.3;
+    text-align: left;
+    position: relative;
+    height: 200px;
+    line-height: 30px;
+    font-size: 16px;
+    text-shadow: none;
+    margin-top: 50px;
+}
+
+.albumCover {
+    box-shadow: 1px 1px 5px black;
+}
+
+.request {
+    width: 49%;
+    min-height: 200px;
+    height: 900px;
+    overflow-y: auto;
+    padding: 10px;
+    position: relative;
+    top: 0px;
+    color: black;
+    background-color: whitesmoke;
+    margin: 0px;
+    float: left;
+    text-align: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid gainsboro;
+}
+
+.result {
+    width: 51%;
+    right: 0px;
+    height: 900px;
+    padding: 0px;
+    top: 0px;
+    position: relative;
+    margin: 0px;
+    float: left;
+    box-sizing: border-box;
+    background-color: #333;
+    overflow-y: auto;
+}
+
+.welcomeMessage {
+    font-size: 16px;
+    opacity: 0.4;
+    line-height: 30px;
+    text-align: left;
+}
+
+.albumSong {
+    text-align: left;
+    padding-left: 10px;
+    min-height: 50px;
+    line-height: 50px;
+    transition: all 0.5s;
+    border-radius: 15px;
+    text-shadow: none;
+    font-size: 15px;
+    height: auto;
+    width: 84%;
+    margin-left: 8%;
+}
+
+.albumSong:hover{
+    background-color: gainsboro;
+}
+
+.song {
+    width: 100%;
+    height: 160px !important;
+    color: white;
+    text-shadow: 1px 1px 5px black;
+    padding: 0px !important;
+    border-radius: 10px;
+}
+
+.saveButton {
+    display: inline-block; 
+    color: darkorchid; 
+    text-align: right; 
+    padding-right: 15px; 
+    font-size: 14px; 
+    opacity: 0.8;
+    cursor: pointer;
+    width: 30%;
+}
+
+.songInfo {
+    font-size: 14px;
+    opacity: 0.9;
+    margin: 10px 0px;
+    line-height: 10px;
+}
+
+.songInfo > hr {
+    border-top: 1px solid transparent;
+    opacity: 0.9;
+    width: 90%;
+}
+
+.row {
+    margin: 0px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.col-md-4 {
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.col-md-7 {
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+    padding-left: 10px;
+    padding-top: 5px;
+    box-sizing: border-box;
+}
+
+.song>.row>.col-md-7 {
+    font-size: 16px;
+    line-height: 15px;
+}
+
+.albumData {
+    opacity: 0.6; 
+    font-size: 15px;
+}
+
+.resultsHr {
+    border-top: 1px solid darkviolet; 
+    opacity: 0.6; 
+    width: 75%;
+}
+.songListInfo {
+    font-size: 12px;
+}
+
+.trackRow {
+    display: inline-block; 
+    width: 70%; 
+    text-align: left;
+}
+
+.welcomeIcon {
+    margin-top: 50px; 
+    color: darkviolet; 
+    opacity: 0.4; 
+    font-size: 130px; 
+    width: 100%; 
+    display: block; 
+    text-align: center;
+}
+
+.suggestClick {
+    font-size: 12px; 
+    color: darkorchid; 
+    opacity: 0.7;
+}
+/* End of classes 
+
+***
+***
+***
+
+ID definitions */
+#mainWelcome {
+    text-align: left; 
+    padding: 10px;
+}
+
+#playlistTitle {
+    color: white;
+    text-align: center;
+    height: 80px;
+    display: block;
+    line-height: 80px;
+    font-size: 30px;
+    font-weight: 5;
+    color: darkviolet;
+    text-shadow: 1px 1px 5px black;;
+}
+
+#albumInfo {
+    text-align: left;
+    line-height: 30px;
+    padding-top: 5px;
+    padding-left: 0px;
+    font-size: 20px;
+    text-shadow: none;
+}
+
+#albumInfo>h5{
+    font-size: 24px;
+    opacity: 1;
+}
+
+#clearButton {
+    margin-left: 18px;
+    border-radius: 35px;
+    background-color: darkviolet;
+}
+
+#preSearchMessage {
+    color: white;
+    display: block;
+    width: 80%;
+    margin-left: 10%;
+    margin-top :10%;
+    text-align: center;
+    text-shadow: 1px 1px 5px black;
+    opacity: 0.7;
+    font-size: 15px;
+}
+
+#preSearchIcon {
+    display: block;
+    font-size: 130px;
+    opacity: 0.4;
+}
+
+#search {
+    background-color: #222;
+    position: relative;
+    width: 100%+10px;
+    height: 100px;
+    margin: -10px;
+    color: white;
+    font-size: 17px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 1px 1px 5px darkviolet;
+}
+/* End of ID */

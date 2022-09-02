@@ -1,0 +1,72 @@
+/* Tag definitions */
+form {
+    position: absolute;
+    width: 40%;
+    left: 30%;
+    background-image: linear-gradient(mediumpurple, mediumpurple, darkviolet, darkorchid, darkorchid );
+    box-shadow: 1px 1px 5px black;
+    border-radius: 15px;
+    height: auto;
+    top: 35px;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+button{
+    margin: 10px;
+}
+
+mat-checkbox {
+    font-size: 12px;
+}
+/* End of tags 
+
+***
+***
+***
+
+ID definitions */
+#registerButton {
+    background-color: darkviolet;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+#registerButton:disabled {
+    box-shadow: none;
+    background-color: transparent;
+    border: 1px solid darkviolet;
+    opacity: 0.8;
+    text-shadow: none;
+}
+/* End of ID 
+
+***
+***
+***
+
+Mat Form Field */
+mat-form-field{
+    display: block;
+    width: 70%;
+    margin-left: 15%;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    color: white !important;
+}
+  
+::ng-deep.mat-form-field-underline {
+    background-color: white !important;
+} 
+  
+::ng-deep.mat-form-field-ripple {
+   background-color: white !important;;
+}
+/* End of Mat Form Field */

@@ -1,0 +1,96 @@
+<div id="user">
+
+<!-- Title and logout button -->
+<small style="display: block; width: 90%; height: 60px; margin-left: 5%;">
+    <span style="float: left; text-align: left;">
+        Le tue informazioni personali
+    </span>
+    <span style="float:right;">
+        <button mat-raised-button color="warn" (click)="logout();">
+            <i class="fas fa-sign-out-alt"></i>&nbsp;Logout
+        </button>
+    </span>
+</small>
+<!---->
+<hr>
+<!-- User's info table -->
+<table class="table-striped" id="userInfoTable" title="Le tue informazioni personali">
+    <tr>
+        <td class="selector">Nome</td>
+        <td class="property">{{ utente?.firstname }}</td>
+    </tr>
+    <tr>
+        <td class="selector">Cognome</td>
+        <td class="property">{{ utente?.lastname }}</td>
+    </tr>
+    <tr>
+        <td class="selector">E-mail</td>
+        <td class="property" style="font-size: 14px;">{{ utente?.email }}</td>
+    </tr>
+    <tr>
+        <td class="selector">Username</td>
+        <td class="property">{{ utente?.username }} &nbsp; <i class="fas fa-lock"></i></td>
+    </tr>
+    <tr>
+        <td class="selector">Password</td>
+        <td class="property">{{ utente?.password }}</td>
+    </tr>
+</table>
+<!---->
+
+<!-- User management -->
+<div id="userManagement">
+    <!-- Edit/Delete user -->
+    <span id="userButtons">
+        <button mat-raised-button style="background-color: darkorchid; width: 200px;" (click)="editUser=!editUser">
+            <i class="fas fa-pen"></i>&nbsp;Modifica i tuoi dati
+        </button>
+        <br>
+        <button mat-raised-button style="width: 200px; border: 0.5px solid red;" (click)="openDialog()">
+            Elimina il tuo account
+        </button>
+    </span>
+    <!---->
+    <!-- Update user form -->
+    <div id="userForm">
+        <form #f="ngForm" [formGroup]="formUtente" novalidate *ngIf="editUser">
+            <mat-form-field>
+                <input matInput type="text" [formControl]="formUtente.get('firstname')" placeholder="Nome" maxlength="20" autocomplete="off" autocapitalize="words" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="text" [formControl]="formUtente.get('lastname')" placeholder="Cognome" maxlength="20" autocomplete="off" autocapitalize="words" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input  matInput type="text" [formControl]="formUtente.get('email')" placeholder="E-mail" maxlength="40" autocomplete="off" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="text" [formControl]="formUtente.get('username')" placeholder="Username" maxlength="15" autocomplete="off" required >
+                <small style="font-size: 13px; opacity: 0.6;">Non puoi modificare il tuo username</small>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [type]="type" [formControl]="formUtente.get('password')" placeholder="Password" malength="20" autocomplete="off" required>
+                <mat-icon matSuffix style="font-size: 15px; cursor: pointer" *ngIf="formUtente.get('password').value">
+                    <i class="fas fa-eye" *ngIf="type=='password'" (click)="type='text'"></i>
+                    <i class="fas fa-eye-slash" *ngIf="type=='text'" (click)="type='password'"></i>
+                </mat-icon>
+                <small>Max: 20 caratteri</small>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="password" [formControl]="confPassword" placeholder="Conferma password" maxlength="20" autocomplete="off" required>
+            </mat-form-field>
+            <button mat-raised-button [disabled]="f.invalid || confPassword.value !== formUtente.get('password').value" (click)="updateUser();"> Conferma </button>
+            &nbsp;
+            <button mat-raised-button color="warn" (click)="editUser=false"> Annulla </button>
+        </form>
+        <!-- When not in edit mode -->
+        <span id="userWelcome" *ngIf="!editUser">
+            <p>Questa è la tua area riservata. Qui puoi gestire comodamente le tue informazioni personali.</p>
+            <i class="fas fa-hand-point-left" style="font-size: 80px;"></i>
+        </span>
+        <!-- -->
+    </div>
+    <!---->
+</div>
+<!----->
+
+</div>

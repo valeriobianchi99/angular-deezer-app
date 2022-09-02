@@ -1,0 +1,106 @@
+/* Tag definitions */
+tr{
+    height: 80px !important;
+    margin: 0px;
+    transition: all 1.5s;
+    display: block;
+    position: relative;
+    width: 100%;
+    border-radius: 5px;
+}
+
+tr>td {
+    line-height: 80px;
+    height: 100%;
+    display: inline-block;
+}
+
+tr:hover {
+    background-color: black;
+}
+
+mat-form-field {
+    display: block;
+    width: 70%;
+}
+/* End of tags
+
+***
+***
+***
+
+Class definitions */
+.selector {
+    text-align: left;
+    font-weight: bold;
+    padding-left: 15px;
+    text-shadow: 1px 1px 5px black;
+    display: inline-block;
+    width: 40%;
+    border-right: 2px solid darkorchid;
+}
+
+.property {
+    text-align: left;
+    display: inline-block;
+    width: 60%;
+    padding-left: 20px;
+}
+/* End of classes 
+
+***
+***
+***
+
+ID definitions */
+#user {
+    height: 900px;
+}
+
+#userManagement {
+    display: inline-block;
+    width: 55%;
+    text-align: left;
+    padding-left: 20px;
+}
+
+#userButtons {
+    position: relative;
+    float: left;
+    width: 30%;
+    margin: 0;
+}
+
+#userForm {
+    display: inline-block;
+    position: relative;
+    width: 65%;
+    margin: 0;
+    margin-left: 5%; 
+    font-size: 16px;
+    padding: 5px;
+    padding-left: 25px;
+    border-left: 1px solid darkorchid;
+    margin-bottom: 15px;
+    height: 500px;
+}
+
+#userWelcome {
+    opacity: 0.7;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+#userInfoTable {
+    font-size: 16px;
+    width: 35%;
+    margin-left: 5%;
+    background-color: #333;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    position: relative;
+    float: left;
+}
+/* End of ID */

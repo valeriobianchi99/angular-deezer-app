@@ -1,0 +1,36 @@
+<!-- Main container of the app -->
+<div id="wrapper" (click)="stillLogged()">
+  <div id="top">
+    <i class="fab fa-connectdevelop"></i> Deezer Client Service
+    <!-- Navigation menu of the app -->
+    <div id="menu">
+        <mat-tab-group mat-align-tabs="center" animationDuration="1600ms">
+          <mat-tab label="Cerca">
+            <ng-template matTabContent>
+              <app-search (save)="addSavedSong($event)" (delete)="deleteSong($event)"></app-search>
+            </ng-template>
+          </mat-tab>
+          <mat-tab label="Chart">
+            <ng-template matTabContent>
+              <app-chart (save)="addSavedSong($event)" (delete)="deleteSong($event)"></app-chart> 
+            </ng-template>
+          </mat-tab>
+          <mat-tab label="Salvati">
+            <ng-template matTabContent>
+              <app-saved (remove)="deleteSong($event)" [tracks]="savedSongs"></app-saved>  
+            </ng-template>
+          </mat-tab>
+          <mat-tab [label]="loggedUser.firstname">
+            <ng-template matTabContent>
+              <app-user (signout)="showSpinner()"></app-user>
+            </ng-template>
+          </mat-tab>
+        </mat-tab-group>
+    </div>
+    <!---->
+  </div>
+</div>
+<!---->
+<!-- Bottom div -->
+<span id="credits">Credits: Deezer, Inc.</span>
+<!---->

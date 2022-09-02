@@ -1,0 +1,165 @@
+/* Tag definitions */
+tbody {
+    background-color: white;
+}
+
+table {
+    height: 100%;
+    border-bottom: 1px solid darkviolet; 
+    margin: 0px;
+}
+
+audio {
+    width: 40%;
+    height: 60px;
+    border-radius: 10px;
+    opacity: 0.6;
+    transition: all 0.4s;
+    margin-right: 10px;
+}
+
+a {
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 1;
+    color: lightsteelblue;
+    text-shadow: 1px 1px 2px black;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+audio:hover {
+    opacity: 1;
+} 
+
+tr {
+    height: auto;
+    background-color: #333;
+}
+
+td {
+    font-size: 14px;
+    color: white;
+    border: none;
+}
+/* End of tags 
+
+***
+***
+***
+
+Class definitions */
+.col-md-8 {
+    padding-left: 30px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.artist {
+    opacity: 0.6;
+}
+
+.position {
+    font-size: 24px;
+    color: darkviolet;
+    text-shadow: 1px 1px 3px black;
+}
+
+.transparentHr {
+    border-top: 1px solid transparent;
+}
+
+.albumCaption {
+    display: block; 
+    opacity: 0.6; 
+    text-align: left; 
+    width: 100%;
+}
+
+.chartInfo {
+    text-align: left; 
+    z-index: 99; 
+    background-color: #333; 
+    padding: 20px; 
+    border-left: 1px solid gainsboro; 
+    padding-top: 13px; 
+    border-radius: 0px 10px 10px 0px;  
+    border-right: 4px solid darkorchid; 
+}
+
+.artistPicture {
+    border-radius: 50%; 
+    opacity: 0.8; 
+    box-shadow: 1px 1px 5px black;
+}
+
+.chartAlbum {
+    border-left: 4px solid darkorchid; 
+    background-color: #333; 
+    padding: 10px; 
+    padding-left: 15px; 
+    border-radius: 10px 0px 0px 10px;
+}
+
+.chartCover {
+    box-shadow: 1px 1px 5px black; 
+    border-radius: 15px;
+    margin-top: 30px; 
+}
+/* End of classes 
+
+***
+***
+***
+
+Expansion panel */
+mat-panel-title, mat-panel-description {
+    width: 50%;
+    height: auto;
+    text-align: left;
+}
+
+mat-expansion-panel {
+    width: 60%;
+    margin-left: 20%;
+}
+
+mat-expansion-panel-header {
+    line-height: 30px;
+}
+/* End of expansion panel 
+
+***
+***
+***
+
+ID definitions */
+#credits {
+    font-size: 14px;
+    opacity: 0.5;
+    height: 45px;
+    display: block;
+    line-height: 45px;
+    margin-top: -10px;
+}
+
+#chartTitle {
+    color: white;
+    font-weight: bold;
+    border-bottom: 1px solid darkviolet;
+    text-shadow: 1px 1px 5px black;
+}
+
+#chart {
+    position: relative;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    height: auto;
+}
+/* End of ID */

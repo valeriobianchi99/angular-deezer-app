@@ -1,0 +1,78 @@
+<!-- Main container of the component -->
+<div id="saved">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 style="text-align: left; margin-left: 17%; color: darkviolet; text-shadow: 1px 1px 1px black;"><i class="fas fa-bookmark"></i> Brani preferiti</h3>
+        </div>
+    </div>
+    <hr>
+    <!-- Search area with input -->
+    <div id="savedSearch" *ngIf="thereAreTracks()">
+        <mat-form-field style="width: 90%;">
+            <input (input)="search()" matInput type="text" placeholder="Cerca" [(ngModel)]="filtro" maxlength="15">
+            <button mat-button *ngIf="filtro" matSuffix mat-icon-button aria-label="Clear" (click)="filtro=''">
+                <mat-icon>close</mat-icon>
+              </button>
+        </mat-form-field>
+    </div>
+    <!---->
+    <ul *ngIf="tracks">
+        <!-- Tracks as li tags -->
+        <li *ngFor="let track of tracks">
+            <!-- Song info -->
+            <div class="row savedRow">
+                <div class="col-md-3 savedCover">
+                    <img [src]="track?.album.cover">
+                </div>
+                <div class="col-md-7 savedSongInfo">
+                    <span style="display: inline-block; width: 70%; text-align: left;">
+                        <strong style="opacity: 0.7">{{ track.title }}</strong>
+                    </span>
+                    <span style="display: inline-block; width: 30%; text-align: right; color: darkorchid; opacity: 0.7;">
+                        <i class="fas fa-play" style="font-size: 10px;"></i>&nbsp; {{ track.rank | number }}
+                    </span>
+                    <hr>
+                    <span *ngFor="let cont of track.contributors; let i = index" style="font-size: 15px;">
+                        {{ cont.name }}<span *ngIf="i<track.contributors.length-1">,</span>
+                    </span>
+                     - 
+                    <a [href]="track?.album.link" target="_blank">
+                        <span style="font-size: 15px; opacity: 0.6; color: darkviolet">
+                            {{ track?.album.title + ' (' + track?.release_date.slice(0,4) + ')' }}
+                        </span>
+                    </a>
+                    <br>
+                    <!-- Preview -->
+                    <audio controls>
+                        <source [src]="track?.preview">
+                    </audio>
+                    <!---->
+                </div>
+                <!-- To delete the song -->
+                <div class="deleteCell" title="Elimina dalla tua libreria" (click)="unsave(track.id)">
+                    <i class="fas fa-trash-alt"></i>
+                    <br>
+                    <small style="font-size: 13px;">Rimuovi</small>
+                </div>
+                <!---->
+            </div>
+            <!---->
+        </li>
+        <!---->
+        <!-- No results for the filter -->
+        <li id="noResults" *ngIf="tracks.length==0 && filtro">
+            Nessun risultato.
+        </li>
+        <!---->
+    </ul>
+    <!-- If there aren't saved songs-->
+    <div style="font-size: 16px; opacity: 0.5; color: black; " *ngIf="tracks.length==0 && !filtro">
+        Non hai ancora salvato nessun brano. Per farlo, clicca sull'icona <i class="fas fa-plus"></i> accanto al titolo dei brani che ti piacciono.
+        <br>
+        <span style="font-size: 150px; opacity: 0.3">
+            <i class="fas fa-frown"></i>
+        </span>
+    </div>
+    <!---->
+</div>
+<!---->

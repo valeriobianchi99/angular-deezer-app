@@ -1,0 +1,30 @@
+<!-- Login form -->
+<form #f="ngForm" novalidate [formGroup]="user">
+    <h3 style="text-shadow: 1px 1px 1px black; font-weight: bold;">Login</h3>
+    <hr>
+    <small style="opacity: 0.7; font-size: 10px;">Effettua l'accesso con le tue credenziali.</small>
+    <mat-form-field>
+        <input matInput type="text" [formControl]="user.get('username')" maxlength="15" autocomplete="off" required
+            placeholder="Username">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" [formControl]="user.get('password')" maxlength="20" autocomplete="off"
+            placeholder="Password" required>
+    </mat-form-field>
+    <small style="opacity: 0.7; font-size: 10px;">I campi contrassegnati da * sono obbligatori.</small>
+    <hr>
+    <button mat-raised-button id="loginButton" [disabled]="f.invalid" (click)="login()">Accedi</button>
+    <a routerLink="../register">
+        <button mat-raised-button>Registrati</button>
+    </a>
+</form>
+<!---->
+<!-- Big logo under the login form -->
+<div id="presentation">
+    <span style="font-size: 130px;">
+        <i class="fab fa-connectdevelop"></i>
+    </span>
+    <br>
+    Deezer Client Service
+</div>
+<!---->

@@ -1,0 +1,83 @@
+<!-- Main container of the component -->
+<div id="chart">
+    <!-- Charts table -->
+    <table class="table">
+        <tbody>
+            <!-- Title -->
+            <tr id="chartTitle">
+               <span style="font-size: 32px;"><i class="fas fa-trophy"></i></span>&nbsp;Top 10 chart
+            </tr>
+            <!---->
+            <!-- Chart tracks -> Rows -->
+            <tr *ngFor="let track of tracks; let i = index"> 
+                <td>
+                    <mat-accordion>
+                        <!-- Expansion panel -->
+                        <mat-expansion-panel>
+                          <!-- Header -->
+                            <mat-expansion-panel-header class="container-fluid h-auto">
+                                <mat-panel-title>
+                                    <td class="position"> {{ '#'+(i+1).toString() }}</td>
+                                    <td>
+                                        <span (click)="saveSong(track?.id)" *ngIf="!saved(track.id)" style="color: darkorchid; cursor: pointer;">
+                                            <i class="fas fa-plus" title="Salva"></i>
+                                        </span>
+                                        <span (click)="deleteSong(track?.id)" *ngIf="saved(track.id)" style="color: darkorchid; cursor: pointer;">
+                                            <i class="fas fa-heart"></i>
+                                        </span>
+                                    </td>
+                                    <td class="title">                                       
+                                        {{ track?.title }}
+                                    </td>    
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                <td class="artist">{{ track?.artist.name }}</td>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <!---->
+                            <!-- Content of expansion panel -->
+                            <div class="row">
+                              <div class="col-md-4 chartAlbum">
+                                  <img class="chartCover" [src]="track?.album.cover" alt="">
+                                <hr class="transparentHr">
+                                <span class="albumCaption">Album</span> <h4 style="text-align: left;">{{ track?.album.title }}</h4>
+                              </div>
+                              <div class="col-md-8 chartInfo">
+                                <span style="opacity: 0.6">
+                                    <span title="Stream" style="color: darkorchid; font-weight: bold; text-shadow: 1px 1px 2px black; font-size: 20px;">
+                                        <i class="fas fa-play" style="font-size: 10px;"></i>&nbsp; {{ track?.rank | number }}
+                                    </span>
+                                    <br>
+                                    <a [href]="track?.link" target="_blank">Ascolta su Deezer</a>
+                                </span>
+                                <hr>
+                                <!-- Artist info -->
+                                <div class="row container-fluid w-auto h-auto">
+                                    <div class="col-md-4 container-fluid h-auto w-auto" style="text-align: center;">
+                                        <a [href]="track?.artist.link" target="_blank" title="See artist page">
+                                            <img class="artistPicture" [src]="track?.artist.picture">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8 container-fluid h-auto w-auto">
+                                        <span style="opacity: 0.6">Artista</span> <h4>{{ track?.artist.name }}</h4>
+                                        <br>
+                                        <small style="opacity: 0.5">Clicca sull'immagine per saperne di più...</small>
+                                    </div>
+                                </div>
+                                <!---->
+                              </div>
+                          </div>
+                          <!---->
+                        </mat-expansion-panel>
+                        <!---->
+                    </mat-accordion>  
+                </td>
+            </tr>
+            <!---->
+        </tbody>
+    </table>
+    <!---->
+</div>
+<!---->
+
+

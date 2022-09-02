@@ -1,0 +1,143 @@
+<!-- Left side: request -->
+<div class="request">
+  <!-- Search area -->
+  <div id="search">
+    <mat-form-field>
+      <input (input)="search()" matInput type="text" (input)="showProgressBar=true" (focusout)="showProgressBar=false" placeholder="Ricerca" [(ngModel)]="query" maxlength="25" autocomplete="off">
+      <button mat-button *ngIf="query" matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <!---->
+  <hr style="border-top: 1px solid transparent">
+  <!-- Main welcome area -->
+  <div id="mainWelcome">
+    <h3>Benvenuto!</h3>
+    <div class="welcomeMessage">
+      Cerca un artista, un brano o un album per visualizzare sulla destra i risultati, grazie ai servizi messi a
+      dispozione da Deezer.
+      <span class="welcomeIcon">
+        <i class="fas fa-box-open"></i>
+      </span>
+    </div>
+    <div class="preAlbumMessage" *ngIf="!album.cover">
+      Clicca sulla cover di un album per visualizzarlo qui e salvare le canzoni che ti interessano di più.
+      <span class="welcomeIcon">
+        <i class="fas fa-compact-disc"></i>
+      </span>
+    </div>
+  </div>
+  <!---->
+  <!-- Album view -->
+  <div style="margin-top: 50px;" *ngIf="album.cover">
+    <hr>
+    <!-- Album header-->
+    <div class="row" style="border:none">
+      <div class="col-md-4">
+        <img class="albumCover" style="cursor: default" [src]="album?.cover">
+      </div>
+      <div class="col-md-8" id="albumInfo">
+        <h5>
+          <span style="display: inline-block; width: 80%;">
+            <strong>{{ album?.title }}</strong>&nbsp;
+            <span (click)="saveAlbum()" *ngIf="!savedAlbum()" style="color: darkorchid; cursor: pointer;">
+              <i class="fas fa-plus" title="Salva"></i>
+            </span>
+            <span (click)="deleteAlbum()" *ngIf="savedAlbum()" style="color: darkorchid; cursor: pointer;">
+              <i class="fas fa-heart"></i>
+            </span>
+          </span>
+          <span style="display: inline-block; width: 20%; text-align: right; opacity: 0.5;">
+            <i class="fas fa-times-circle" title="Chiudi" style="cursor: pointer;" (click)="closeAlbum();"></i>
+          </span>
+        </h5>
+        <span class="albumData">{{ album?.artist }} - {{ album?.date.slice(0,4) }}</span>
+        <br>
+        <span class="suggestClick">
+          <i class="fas fa-mouse-pointer"></i> Clicca sui titoli per saperne di più
+        </span>
+      </div>
+    </div>
+    <!---->
+    <hr>
+    <!-- Album songs -->
+    <div class="albumSong" *ngFor="let song of album.tracks; let i = index">
+      <span class="trackRow">
+        <span style="opacity: 0.3">{{ (i+1).toString() + '. ' }}</span>
+        <a [href]="song.link" target="_blank" title="Play on Deezer">{{ song?.title }}</a>
+      </span>
+
+      <span class="saveButton">
+        {{ song.rank | number }} &nbsp;
+        <i class="fas fa-plus" (click)="saveSong(song.id)" *ngIf="!isSaved(song.id)" ></i>
+        <i class="fas fa-heart" (click)="deleteSong(song.id)" *ngIf="isSaved(song.id)"></i>
+      </span>
+    </div>
+    <!---->
+    <hr>
+  </div>
+  <!---->
+</div>
+<!-- End of left side -->
+
+<!-- Right side: result -->
+<div class="result">
+  <mat-progress-bar mode="query" *ngIf="showProgressBar"></mat-progress-bar>
+  <!-- Message you view when there is no query -->
+  <span id="preSearchMessage" *ngIf="playlist.length==0 && !query">
+    Scrivi nella barra di ricerca sulla sinistra e visualizza i risultati qui
+    <span id="preSearchIcon">
+      <i class="fas fa-stream"></i>
+    </span>
+  </span>
+  <!---->
+  <!-- Message you view when there are no results for the query -->
+  <span id="preSearchMessage" *ngIf="playlist.length==0 && query">
+    Nessun risultato trovato, prova con qualcos'altro
+    <span id="preSearchIcon">
+      <i class="fas fa-times-circle"></i>
+    </span>
+  </span>
+  <!---->
+  <!-- Results header -->
+  <span id="playlistTitle" *ngIf="playlist.length>0">Results</span>
+  <hr *ngIf="playlist.length>0" class="resultsHr">
+  <!---->
+  <!-- Results list -->
+  <div class="song" *ngFor="let song of playlist">
+    <div class="row">
+      <div class="col-md-5" style="text-align:right; cursor: pointer;" (click)="getAlbum(song);">
+        <img [src]="song?.album.cover" title="Visualizza album" alt="No media">
+      </div>
+      <div class="col-md-7" style="text-align: left;">
+        <span class="songInfo">
+          <h5>
+            <span style="width: 50%; text-align: left; cursor: pointer;" (click)="getAlbum(song);">
+              {{ song?.title }}
+            </span>
+            &nbsp;
+            <span style="width: 50%; text-align: center; color: darkorchid; cursor: pointer;">
+              <span (click)="saveSong(song.id)" *ngIf="!isSaved(song.id)">
+                <i class="fas fa-plus"></i>
+              </span>
+              <span (click)="deleteSong(song.id)"*ngIf="isSaved(song.id)">
+                <i class="fas fa-heart"></i>
+              </span>
+            </span>
+          </h5>
+          <span class="songListInfo"><span style="color: darkorchid; font-size: 14px;">{{ song?.artist.name }}</span> - {{ song?.album.title }}</span>
+          <br><br>
+          <!-- Audio preview of the song -->
+          <audio controls title="Preview">
+            <source [src]="song?.preview">
+          </audio>
+          <!---->
+        </span>
+      </div>
+    </div>
+  </div>
+  <!---->
+  <hr *ngIf="playlist.length>1" class="resultsHr">
+</div>
+<!-- End of right side-->

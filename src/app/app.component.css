@@ -1,0 +1,67 @@
+/* Tag definitions */
+mat-tab-group {
+    text-shadow: none; 
+    opacity: 1;
+}
+
+app-chart {
+    height: auto;
+}
+
+app-user {
+    height: 100%;
+}
+/* End of tags
+
+***
+***
+***
+
+ID definitions */
+#wrapper {
+    position: relative;
+    left: 0%;
+    top: 0;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    box-shadow: 1px 1px 5px black;
+}
+
+#top {
+    margin: 0px;
+    text-align: center;
+    min-height: 80px;
+    height: auto;
+    line-height: 80px;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', sans-serif;
+    border-bottom: 1px solid gainsboro;
+    background-color: darkviolet;
+    color: white;
+    text-shadow: 1px 1px 5px black;
+    width: 100%;
+    top: 0px !important;
+    z-index: 99;
+}
+
+#credits {
+    font-size: 14px;
+    height: 55px;
+    position: relative;
+    display: block;
+    width: 100%;
+    top: 0px;
+    margin: 0px;
+    z-index: 99;
+    line-height: 55px;
+    background-color: black;
+    text-align: center;
+    color: gainsboro;
+    border: 2px solid darkorchid;
+}
+
+#menu {
+    background-color: black; 
+}
+/* End of ID */
